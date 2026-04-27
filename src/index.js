@@ -31,6 +31,7 @@
  */
 
 import express from 'express';
+import { renderLanding, renderRobots, renderSitemap, renderSecurity, renderOgImage, seoJson, BRAND_GOLD } from '../meta.js';
 
 const app = express();
 app.use(express.json());
@@ -98,6 +99,24 @@ const TOOLS = [
   },
 ];
 
+
+const SERVICE_CFG = {
+  service: "hive-mcp-mos",
+  shortName: "HiveMOS",
+  title: "HiveMOS \u00b7 Mining OS Plugin & Energy Arbitrage MCP",
+  tagline: "Tether MOS site telemetry, mining intelligence, and energy arbitrage agent.",
+  description: "MCP server for HiveMOS \u2014 Tether Mining OS (MOS) plugin and energy arbitrage agent on the Hive Civilization. Site monitoring, mining intelligence, hashrate analytics, energy-arbitrage signals. USDC/USDT settlement on Base, Ethereum, or Solana. Real rails.",
+  keywords: ["mcp", "model-context-protocol", "x402", "agentic", "ai-agent", "ai-agents", "llm", "hive", "hive-civilization", "depin", "mining-os", "mos", "tether", "mining-intelligence", "energy-arbitrage", "hashrate-analytics", "site-telemetry", "usdc", "usdt", "base", "base-l2", "agent-economy", "a2a"],
+  externalUrl: "https://hive-mcp-gateway.onrender.com/mos",
+  gatewayMount: "/mos",
+  version: "1.0.1",
+  pricing: [
+    { name: "mos_query_sites", priceUsd: 0, label: "Query sites \u2014 free" },
+    { name: "mos_query_telemetry", priceUsd: 0.001, label: "Query telemetry (Tier 1)" },
+    { name: "mos_energy_arb_signals", priceUsd: 0.005, label: "Energy-arb signals (Tier 2)" }
+  ],
+};
+SERVICE_CFG.tools = (typeof TOOLS !== 'undefined' ? TOOLS : []).map(t => ({ name: t.name, description: t.description }));
 // ─── Feature-gate response (Rails Rule 1 — no mock) ──────────────────────────
 function featureGate(res) {
   return res.status(503).json({
@@ -162,6 +181,24 @@ app.get('/.well-known/mcp.json', (req, res) => res.json({
   tools: TOOLS.map(t => ({ name: t.name, description: t.description })),
 }));
 
+
+// HIVE_META_BLOCK_v1 — comprehensive meta tags + JSON-LD + crawler discovery
+app.get('/', (req, res) => {
+  res.type('text/html; charset=utf-8').send(renderLanding(SERVICE_CFG));
+});
+app.get('/og.svg', (req, res) => {
+  res.type('image/svg+xml').send(renderOgImage(SERVICE_CFG));
+});
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain').send(renderRobots(SERVICE_CFG));
+});
+app.get('/sitemap.xml', (req, res) => {
+  res.type('application/xml').send(renderSitemap(SERVICE_CFG));
+});
+app.get('/.well-known/security.txt', (req, res) => {
+  res.type('text/plain').send(renderSecurity());
+});
+app.get('/seo.json', (req, res) => res.json(seoJson(SERVICE_CFG)));
 app.listen(PORT, () => {
   console.log('HiveMOS MCP Server running on :' + PORT);
   console.log('  Backend : ' + HIVE_BASE);
