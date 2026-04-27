@@ -1,7 +1,7 @@
 {
   "name": "hive-mcp-mos",
-  "version": "1.0.1",
-  "description": "Tether MOS telemetry via MCP/A2A \u2014 read-only site monitoring on Hive Civilization rails. Wraps Tether Mining OS (MOS) SDK behind x402-paid endpoints. Backend pending (Q3 2026).",
+  "version": "1.0.2",
+  "description": "MCP server for HiveMOS \u2014 Tether Mining OS (MOS) plugin and mining intelligence agent. Site monitoring, hashrate and energy telemetry, pool connection status. Energy-arbitrage signals for operator optimization. USDC/USDT settlement on Base, Ethereum, or Solana. Scaffold shim \u2014 backend pending Q3 2026.",
   "type": "module",
   "main": "src/index.js",
   "bin": {
@@ -33,8 +33,10 @@
     "usdt",
     "base",
     "base-l2",
-    "agent-economy",
-    "a2a"
+    "autonomous-agent",
+    "agent-infrastructure",
+    "real-rails",
+    "on-chain-settlement"
   ],
   "author": "Steve Rotzin <steve@thehiveryiq.com> (https://www.thehiveryiq.com)",
   "license": "MIT",
