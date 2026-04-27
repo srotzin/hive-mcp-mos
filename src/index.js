@@ -107,7 +107,7 @@ const SERVICE_CFG = {
   tagline: "Tether MOS site telemetry, mining intelligence, and energy arbitrage agent.",
   description: "MCP server for HiveMOS \u2014 Tether Mining OS (MOS) plugin and energy arbitrage agent on the Hive Civilization. Site monitoring, mining intelligence, hashrate analytics, energy-arbitrage signals. USDC/USDT settlement on Base, Ethereum, or Solana. Real rails.",
   keywords: ["mcp", "model-context-protocol", "x402", "agentic", "ai-agent", "ai-agents", "llm", "hive", "hive-civilization", "depin", "mining-os", "mos", "tether", "mining-intelligence", "energy-arbitrage", "hashrate-analytics", "site-telemetry", "usdc", "usdt", "base", "base-l2", "agent-economy", "a2a"],
-  externalUrl: "https://hive-mcp-gateway.onrender.com/mos",
+  externalUrl: "https://hive-mcp-mos.onrender.com",
   gatewayMount: "/mos",
   version: "1.0.1",
   pricing: [
