@@ -1,0 +1,10 @@
+hive-mcp-mos
+Copyright 2026 Steve Rotzin / Hive Civilization (https://hivemorph.onrender.com)
+
+This product includes references to software developed by Tether Operations Ltd.
+Tether MiningOS (MOS) is copyright Tether Operations Ltd., licensed Apache-2.0.
+MOS docs: https://docs.mos.tether.io
+
+This software uses or references:
+  - express (MIT) — https://github.com/expressjs/express
+  - x402 payment protocol — https://x402.org

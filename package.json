@@ -1,0 +1,41 @@
+{
+  "name": "hive-mcp-mos",
+  "version": "1.0.0",
+  "description": "Tether MOS telemetry via MCP/A2A — read-only site monitoring on Hive Civilization rails. Wraps Tether Mining OS (MOS) SDK behind x402-paid endpoints. Backend pending (Q3 2026).",
+  "type": "module",
+  "main": "src/index.js",
+  "bin": {
+    "hive-mcp-mos": "./src/index.js"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "hive",
+    "mining",
+    "mos",
+    "tether",
+    "miningos",
+    "hashrate",
+    "telemetry",
+    "x402",
+    "a2a",
+    "depin",
+    "ai-agents"
+  ],
+  "author": "Steve Rotzin <steve@thehiveryiq.com> (https://www.thehiveryiq.com)",
+  "license": "MIT",
+  "homepage": "https://github.com/srotzin/hive-mcp-mos",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srotzin/hive-mcp-mos"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

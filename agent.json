@@ -1,0 +1,66 @@
+{
+  "@context": [
+    "https://schema.org",
+    "https://hivemorph.onrender.com/v1/a2a/context"
+  ],
+  "@type": "Service",
+  "name": "hive-mcp-mos",
+  "version": "1.0.0",
+  "description": "Tether MOS telemetry via MCP/A2A — read-only site monitoring. Wraps Tether Mining OS (MOS) SDK behind x402-paid endpoints. Backend pending (Q3 2026 spec).",
+  "url": "https://github.com/srotzin/hive-mcp-mos",
+  "provider": {
+    "@type": "Organization",
+    "name": "Hive Civilization",
+    "url": "https://hivemorph.onrender.com"
+  },
+  "license": "https://opensource.org/licenses/MIT",
+  "brand": {
+    "color": "#C08D23"
+  },
+  "capabilities": [
+    "mos-telemetry",
+    "hashrate-query",
+    "health-query",
+    "energy-query",
+    "pool-query"
+  ],
+  "x402": {
+    "settle_chain": "base",
+    "settle_asset": "USDC",
+    "pricing_target": {
+      "note": "Document only — not enforced in v0.1. Backend pending.",
+      "per_call_usd": 0.01,
+      "subscription_usd_per_machine_per_month": 10.00
+    }
+  },
+  "a2a": {
+    "mcp_endpoint": "https://hivemorph.onrender.com/mcp/hive-mcp-mos",
+    "card_url": "https://hivemorph.onrender.com/v1/mos/intel/health",
+    "catalog": "https://hivemorph.onrender.com/v1/earn/catalog"
+  },
+  "mos": {
+    "docs": "https://docs.mos.tether.io",
+    "license": "Apache-2.0",
+    "hardware_agnostic": true,
+    "supported_hardware": ["Antminer", "Whatsminer", "Auradine"]
+  },
+  "status": {
+    "backend": "v0.1 — pending hivemorph backend build (Q3 2026 spec)",
+    "tools_call": "HTTP 503 — no mock data",
+    "tools_list": "operational",
+    "health": "operational",
+    "mcp_json": "operational"
+  },
+  "rails_rules": {
+    "rule_1": "No mock responses. Tool calls return 503 until backend is live.",
+    "permanently_rejected": [
+      "HASHRATE-PERP",
+      "mining-pool-agent",
+      "securitization",
+      "wyoming-trust",
+      "autonomous-machine-control",
+      "GAS-PERP",
+      "GPU-PERP"
+    ]
+  }
+}
